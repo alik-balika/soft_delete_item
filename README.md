@@ -28,10 +28,56 @@ Before running the code and tests, please make you have the following installed:
 
 ### Running Tests
 
-To run RSpec tests:
+#### Running RSpec tests:
 ```bash
 bundle exec rspec
 ```
+Note, I find that this sometimes doesn't work for me and will output a message about 
+a pending migration. In order to fix this, you can run the following command:
+```bash
+rails db:environment:set RAILS_ENV=test db:migrate
+```
+
+#### Manually Testing Soft Delete Functionality with Rails Console
+
+1. Access the Rails Console:
+    Run the following command to open the Rails console:
+    ```bash
+    rails console
+    ```
+
+2. Test Soft Deletion
+    - Create several items using the following commands:
+    ```bash
+    item1 = Item.create(name: 'item 1')
+    item2 = Item.create(name: 'item 2')
+    item3 = Item.create(name: 'item 3')
+    ```
+
+    - Call the all method on the Item model to view all the items (Note that all 3 are present):
+    ```bash
+    Item.all
+    ```
+
+    - Soft delete one of the items:
+    ```bash
+    item1.soft_delete
+    ```
+
+    - Call the all method again (Note that only 2 are present):
+    ```bash
+    Item.all
+    ```
+3. Test Restoration
+    - Restore the item that was deleted before:
+    ```bash
+    item1.restore
+    ```
+
+    - Call the all method again (Note that there are 3 items again):
+    ```bash
+    Item.all
+    ```
 
 ### Summary of Soft Delete Functionality
 
