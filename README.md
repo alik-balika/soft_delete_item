@@ -31,6 +31,7 @@ Before running the code and tests, please make you have the following installed:
 To run RSpec tests:
 ```bash
 bundle exec rspec
+```
 
 ### Summary of Soft Delete Functionality
 
