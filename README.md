@@ -41,7 +41,7 @@ rails db:environment:set RAILS_ENV=test db:migrate
 #### Manually Testing Soft Delete Functionality with Rails Console
 
 1. Access the Rails Console:
-    Run the following command to open the Rails console:
+    - Run the following command to open the Rails console:
     ```bash
     rails console
     ```
