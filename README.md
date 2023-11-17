@@ -23,7 +23,7 @@ Before running the code and tests, please make you have the following installed:
 
 3. Run database migrations:
     ```bash
-    bin/rails db:migrate
+    rails db:migrate
     ```
 
 ### Running Tests
